@@ -1,0 +1,37 @@
+<div class="form_content col-6">
+    <h2>Crear una nueva localización</h2>
+    <form>
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" placeholder="Colombia" [(ngModel)]="location.name"
+                name="name" #name="ngModel" required>
+
+            <label for="area">Área</label>
+            <input type="number" class="form-control" id="area" placeholder="20" [(ngModel)]="location.area_m2"
+                name="area_m2" #area_m2="ngModel" required>
+
+            <label>Padre</label>
+            <select [(ngModel)]="location.parentId" name="parentId">
+                <option [value]="location.id" *ngFor="let location of locationList">{{ location.name }}</option>
+            </select>
+        </div>
+        
+    </form>
+
+    <div class="col">
+        <button type="submit" [disabled]="name.invalid || area_m2.invalid" class="btn float-right form_content_button" (click)="submitForm()">
+            Crear
+        </button>
+    </div>
+
+</div>
+<div class="col mt-1" *ngIf="error">
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+</div>
+<div class="col mt-1" *ngIf="success">
+    <div class="alert alert-primary" role="alert">
+        {{ success }}
+    </div>
+</div>

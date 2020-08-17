@@ -1,0 +1,9 @@
+.main-container {
+    background: #cff2dc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
